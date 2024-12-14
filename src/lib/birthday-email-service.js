@@ -1,4 +1,3 @@
-// src/lib/birthday-email-service.ts
 import nodemailer from 'nodemailer';
 import { PrismaClient } from '@prisma/client';
 
@@ -16,14 +15,24 @@ const transporter = nodemailer.createTransport({
 
 export async function sendBirthdayEmails() {
   const today = new Date();
+  const currentMonth = today.getMonth() + 1; // Months are 0-indexed, so add 1
+  const currentDay = today.getDate();
+
+  // Get all users with birthdays today
   const users = await prisma.user.findMany({
     where: {
       birthday: {
-        month: today.getMonth() + 1,
-        day: today.getDate(),
+        // Compare month and day of the birthday
+        month: currentMonth,
+        day: currentDay,
       },
     },
   });
+
+  if (users.length === 0) {
+    console.log('No birthdays today.');
+    return;
+  }
 
   for (const user of users) {
     await transporter.sendMail({
@@ -38,5 +47,6 @@ export async function sendBirthdayEmails() {
         </div>
       `,
     });
+    console.log(`Birthday email sent to: ${user.name}`);
   }
 }

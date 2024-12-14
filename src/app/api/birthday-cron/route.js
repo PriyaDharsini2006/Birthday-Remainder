@@ -1,10 +1,10 @@
 import { checkBirthdays } from '../../../lib/cron';
 
-export default async function handler(req, res) {
+export async function GET(req) {
   try {
     await checkBirthdays();
-    res.status(200).send('Birthday email check completed');
+    return new Response('Birthday email check completed', { status: 200 });
   } catch (error) {
-    res.status(500).send('Birthday email check failed');
+    return new Response('Birthday email check failed', { status: 500 });
   }
 }

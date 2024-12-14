@@ -1,0 +1,8 @@
+{
+    "functions": {
+      "api/birthday-cron.js": {
+        "schedule": "* * * * *"  // Runs every day at midnight UTC
+      }
+    }
+  }
+  

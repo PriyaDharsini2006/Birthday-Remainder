@@ -18,17 +18,17 @@ import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-import { initializeCronJobs } from './cron';
+export const metadata = {
+  title: 'Birthday Reminder',
+  description: 'Automated Birthday Reminder Service',
+}
 
 export default function RootLayout({
   children,
 }) {
-  // Initialize cron jobs when the app starts
-  initializeCronJobs();
-
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
-  );
+  )
 }

@@ -8,7 +8,7 @@ export default function UserBirthdayForm() {
   const [birthday, setBirthday] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e ) => {
     e.preventDefault();
     setError('');
 

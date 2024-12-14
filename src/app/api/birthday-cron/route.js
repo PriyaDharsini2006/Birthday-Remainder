@@ -1,4 +1,4 @@
-import { checkBirthdays } from '../lib/cron';
+import { checkBirthdays } from '../../../lib/cron';
 
 export default async function handler(req, res) {
   try {

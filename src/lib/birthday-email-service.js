@@ -53,6 +53,8 @@ export async function sendBirthdayEmails() {
             <h1>Happy Birthday, ${user.name}! 🎂</h1>
             <p>Wishing you a fantastic day filled with joy, laughter, and wonderful memories!</p>
             <p>Enjoy your special day!</p>
+            <p>Enjoy Your birthday without thinking about HACKERZ</p>
+            <p>Take some rest </p>
           </div>
         `,
       };
